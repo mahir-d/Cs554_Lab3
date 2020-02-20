@@ -5,12 +5,14 @@ const bodyParser = require("body-parser");
 const dummyData = require('./data/dummyData');
 
 app.use(bodyParser.json());
+app.use("/", async (req, res, next) => {
+    await dummyData.getDummyData();
+    next();
+})
+
 configRoutes(app);
 
-app.get("/", async (req, res) => { 
-    const dum = await dummyData.getDummyData();
-    console.log(dum);
-})
+
 
 
 app.listen(3000, () => {
