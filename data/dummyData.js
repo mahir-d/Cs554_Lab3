@@ -6,24 +6,28 @@ async function getDummyData() {
     dummyData = await data;
 }
 
-async function getById(id) {
 
-    
+getById = ((id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // find project
+            let objToRtrn;
+            for (let i = 0; i < dummyData.length; i++) {
+                if (dummyData[i].id == id) {
+
+                    objToRtrn = dummyData[i];
 
 
-    for (let i = 0; i < dummyData.length; i++) {
-        if (dummyData[i].id == id) {
 
 
-            return dummyData[i];
-
-
-
-        }
-    };
-
-    throw 'Person not found with the given id';
-
-}
-
+                }
+            };
+            if (objToRtrn != undefined) {
+                resolve(objToRtrn);
+            } else {
+                reject(new Error("Person not found with this id"));
+            }
+        }, 5000);
+    });
+})
 module.exports = { getDummyData, getById };
