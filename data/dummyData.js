@@ -7,18 +7,22 @@ async function getDummyData() {
 }
 
 async function getById(id) {
-    console.log("entered");
+
+    
+
+
     for (let i = 0; i < dummyData.length; i++) {
         if (dummyData[i].id == id) {
-            
-            setTimeout(function () { console.log(dummyData[i]); },5000);
-            return dummyData[i]; 
-            
-            
+
+
+            return dummyData[i];
+
+
+
         }
     };
 
-    setTimeout(function () { throw 'No person found with this object!' }, 5000);
+    throw 'Person not found with the given id';
 
 }
 
