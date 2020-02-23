@@ -22,7 +22,7 @@ router.get("/people/history", async (req, res) => {
 
 
 router.get("/people/:id", async (req, res) => {
-    
+
     let id = req.params.id;
 
 
@@ -57,7 +57,6 @@ router.get("/people/:id", async (req, res) => {
 
 
     } catch (e) {
-        console.log(e);
         res.status(404).json({ Error: e });
     }
 })

@@ -25,7 +25,7 @@ getById = ((id) => {
             if (objToRtrn != undefined) {
                 resolve(objToRtrn);
             } else {
-                reject(new Error("Person not found with this id"));
+                reject("Person not found with this id");
             }
         }, 5000);
     });

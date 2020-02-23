@@ -21,7 +21,7 @@ configRoutes(app);
 
 
 
-app.listen(4000, async () => {
+app.listen(3000, async () => {
     console.log('server started');
     console.log("Routes will be running on http://localhost:3000");
     await client.FLUSHALLAsync();
