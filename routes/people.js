@@ -14,7 +14,11 @@ router.get("/people/history", async (req, res) => {
     try {
 
         let toRtrn = await client.LRANGEAsync("myList", 0, 19);
-        res.status(200).send(toRtrn);
+        let objToRtrn = [];
+        toRtrn.forEach(personObj => {
+            objToRtrn.push(JSON.parse(personObj));
+        });
+        res.status(200).send(objToRtrn);
     } catch (e) {
         console.log(e);
     }
